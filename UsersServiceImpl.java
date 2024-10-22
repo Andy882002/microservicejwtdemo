@@ -20,7 +20,7 @@ public class UsersServiceImpl implements UsersService{
 	BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	ModelMapper modelMapper;
-   // @Autowired
+
 	public UsersServiceImpl(UsersRepository usersRepository, BCryptPasswordEncoder bCryptPasswordEncode, ModelMapper modelMappe) {
 		
 		this.usersRepository = usersRepository;
@@ -32,7 +32,7 @@ public class UsersServiceImpl implements UsersService{
 	
 	@Override
 	public UserDto createUser(UserDto userDetails) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub the issue is after version 3.0.0 modelMapping is not able map the encrypepassword
 		
 		userDetails.setUserId(UUID.randomUUID().toString());
 		userDetails.setEncrypetedPassword(bCryptPasswordEncoder.encode(userDetails.getPassword()));
